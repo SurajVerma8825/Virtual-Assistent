@@ -1,4 +1,5 @@
-import { USER_API } from '@/assets/constrent';
+import { bg, USER_API } from '@/assets/constrent';
+
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -46,8 +47,10 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] px-4 font-poppins">
-      <div className="w-full max-w-3xl backdrop-blur-md bg-white/10 border border-white/30 shadow-2xl rounded-3xl overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] px-4 font-poppins"
+    >
+      <div className="w-full max-w-2xl backdrop-blur-md bg-white/10 border border-white/30 shadow-2xl rounded-3xl overflow-hidden">
+
         <form
           className="w-full p-8 flex flex-col gap-4"
           onSubmit={handleSubmit}
