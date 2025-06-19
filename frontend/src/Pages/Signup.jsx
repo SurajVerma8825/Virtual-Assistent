@@ -5,11 +5,14 @@ import { Label } from '@/components/ui/label';
 import axios from 'axios';
 import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 
 const Signup = () => {
   const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
+
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -20,6 +23,8 @@ const Signup = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  console.log('user:- ', user);
 
   const handleSubmit = async (e) => {
     setLoading(true);

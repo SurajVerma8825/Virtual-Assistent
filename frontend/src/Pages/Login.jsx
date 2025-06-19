@@ -2,14 +2,19 @@ import { USER_API } from '@/assets/constrent';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { setAuthUser } from '@/Redux/Slices/authSlice';
 import axios from 'axios';
 import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
+
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -32,7 +37,7 @@ const Login = () => {
       });
 
       if (res.data.success) {
-        // dispatch(setUser(res.data.user));
+        dispatch(setAuthUser(res.data.user));
         navigate('/');
         toast.success(res.data.message);
       }
